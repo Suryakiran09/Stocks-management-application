@@ -15,7 +15,7 @@ const Register: React.FC = () => {
       navigate('/login');
     } catch (error) {
       console.error('Registration failed:', error);
-      setError('Registration failed. Please try again.');
+      setError('Registration failed. Please try again or User exists');
     }
   };
 
@@ -44,6 +44,7 @@ const Register: React.FC = () => {
       <Button onClick={() => navigate('/login')} variant="text" fullWidth>
         Already have an account? Login
       </Button>
+      <p>Please Open Backend Website it takes upto 30 seconds to start if idle as it is a free instance <a href="https://stock-list-api.onrender.com/" target="_blank">Link</a></p>
     </Container>
   );
 };

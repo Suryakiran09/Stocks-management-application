@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { loginUser } from '../api';
 import { TextField, Button, Container, Typography, Alert } from '@mui/material';
 
@@ -8,6 +9,11 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+  
+  if(token){
+    <Navigate to="/dashboard" />
+  }
 
   const handleLogin = async () => {
     try {
@@ -46,6 +52,7 @@ const Login: React.FC = () => {
       <Button onClick={() => navigate('/register')} variant="text" fullWidth>
         Don't have an account? Register
       </Button>
+      <p>Please Open Backend Website it takes upto 30 seconds to start if idle as it is a free instance <a href="https://stock-list-api.onrender.com/" target="_blank">Link</a></p>
     </Container>
   );
 };

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createWatchlist, getWatchlist, getStockData } from '../api';
-import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { TextField, Button, Container, Typography, Box, Alert } from '@mui/material';
 import Watchlist from './Watchlist';
 
 const Dashboard: React.FC = () => {
   const [stockSymbol, setStockSymbol] = useState('');
   const [watchlist, setWatchlist] = useState<any[]>([]);
   const [stockData, setStockData] = useState<any>({});
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,6 +40,8 @@ const Dashboard: React.FC = () => {
       setWatchlist(response.data);
       setStockSymbol('');
     } catch (error) {
+      setError('Stock already Exists.');
+      setStockSymbol('');
       console.error('Failed to add stock to watchlist:', error);
     }
   };
@@ -52,6 +55,7 @@ const Dashboard: React.FC = () => {
       console.log(response.data)
       setStockData(response.data);
     } catch (error) {
+      setError('May be the API reach rate limit');
       console.error('Failed to fetch stock data:', error);
     }
   };
@@ -69,6 +73,7 @@ const Dashboard: React.FC = () => {
           Logout
         </Button>
       </Box>
+      {error && <Alert severity="error">{error}</Alert>}
       <TextField 
         label="Stock Symbol" 
         value={stockSymbol} 
@@ -76,7 +81,7 @@ const Dashboard: React.FC = () => {
         fullWidth 
         margin="normal"
       />
-      <h3>Example Stocks: AAPL, GOOG, MSFT, AMZN, FB, TSLA</h3>
+      <h3>Example Stocks: AAPL, GOOG, MSFT, AMZN, TSLA</h3>
       <Button onClick={handleAddStock} variant="contained" color="primary" fullWidth>
         Add Stock
       </Button>
