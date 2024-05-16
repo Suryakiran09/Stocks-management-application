@@ -135,3 +135,29 @@ Frontend deployment Link
 ```bash
 https://stocks-management-application.vercel.app/
 ```
+
+
+#### Backend Swagger API Documentation
+
+![alt text](image.png)
+
+#### Register Page UI
+
+![alt text](image-1.png)
+
+```python
+username = sk1
+password = 123
+```
+
+#### Login Page UI
+
+![alt text](image-2.png)
+
+#### DashBoard before adding the stock names to the Watchlist
+
+![alt text](image-3.png)
+
+#### DashBoard after adding the stock names to the Watchlist
+
+![alt text](image-4.png)
