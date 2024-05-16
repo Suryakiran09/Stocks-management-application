@@ -161,3 +161,9 @@ password = 123
 #### DashBoard after adding the stock names to the Watchlist
 
 ![alt text](image-4.png)
+
+#### DashBoard after fetching the stock prices
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
