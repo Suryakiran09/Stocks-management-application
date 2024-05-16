@@ -52,7 +52,8 @@ const Login: React.FC = () => {
       <Button onClick={() => navigate('/register')} variant="text" fullWidth>
         Don't have an account? Register
       </Button>
-      <p>Please Open Backend Website it takes upto 30 seconds to start if idle as it is a free instance <a href="https://stock-list-api.onrender.com/" target="_blank">Link</a></p>
+      <h3>Please Open Backend Website it takes upto 30 seconds to start if idle as it is a free instance <a href="https://stock-list-api.onrender.com/" target="_blank">Link</a></h3>
+      <h4>Logged in but Not redirected Refresh Wait & Click<Button onClick={() => navigate('/dashboard')} variant="text">Dashboard</Button> </h4>
     </Container>
   );
 };

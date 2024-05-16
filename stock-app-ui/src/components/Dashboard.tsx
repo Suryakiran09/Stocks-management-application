@@ -52,10 +52,15 @@ const Dashboard: React.FC = () => {
 
     try {
       const response = await getStockData(token);
-      console.log(response.data)
-      setStockData(response.data);
+      console.log(response.data);
+      if (Object.keys(response.data).length === 0) {
+        setError('Maybe the API reached the rate limit');
+      } else {
+        setError(''); // Clear the error if data is fetched successfully
+        setStockData(response.data);
+      }
     } catch (error) {
-      setError('May be the API reach rate limit');
+      setError('Maybe the API reached the rate limit');
       console.error('Failed to fetch stock data:', error);
     }
   };
